@@ -1,0 +1,53 @@
+﻿<Window
+    x:Class="Vavatech.Shop.WPFClient.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Vavatech.Shop.WPFClient"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="MainWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+
+    <Grid>
+
+
+
+        <Button
+            Width="200"
+            Height="100"
+            Background="Green"
+            Content="Update" />
+
+        <Button
+            Width="200"
+            Height="200"
+            Content="Hello">
+
+
+            <Button.Background>
+
+                <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                    <GradientStop Offset="0.5" Color="Green" />
+                    <GradientStop Offset="0.75" Color="Blue" />
+                    <GradientStop Color="Yellow" />
+                </LinearGradientBrush>
+
+            </Button.Background>
+
+        </Button>
+
+        <Button
+            Width="200"
+            Height="100"
+            Background="Blue">
+            Hello
+        </Button>
+
+
+    </Grid>
+
+
+
+</Window>

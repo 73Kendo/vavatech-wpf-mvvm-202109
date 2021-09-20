@@ -1,0 +1,21 @@
+﻿<Window
+    x:Class="Vavatech.Shop.WPFClient.ShellView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Vavatech.Shop.WPFClient"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="ShellView"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Grid>
+
+        <TextBlock
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="18"
+            Text="Shell View" />
+
+    </Grid>
+</Window>
