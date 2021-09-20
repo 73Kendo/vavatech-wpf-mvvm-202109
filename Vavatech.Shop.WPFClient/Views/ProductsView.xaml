@@ -6,19 +6,81 @@
     xmlns:local="clr-namespace:Vavatech.Shop.WPFClient.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="ProductsView"
+    d:Background="White"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
 
-    <Grid Background="DarkMagenta">
+    <Grid>
 
-        <TextBlock
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            FontSize="18"
-            Foreground="White">
-            Products View
-        </TextBlock>
+        <Grid Height="100">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="100" />
+
+
+            </Grid.ColumnDefinitions>
+
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock
+                        Width="200"
+                        Margin="5"
+                        VerticalAlignment="Center"
+                        Text="Product" />
+
+                    <TextBlock
+                        Width="100"
+                        Margin="5"
+                        VerticalAlignment="Center"
+                        Text="100 PLN"
+                        TextAlignment="Right" />
+
+                    <Ellipse
+                        Width="20"
+                        Height="20"
+                        VerticalAlignment="Center"
+                        Fill="DarkMagenta" />
+
+                    <CheckBox
+                        Margin="5"
+                        VerticalAlignment="Center"
+                        Content="Is Discounted"
+                        IsChecked="True" />
+                </StackPanel>
+
+                <TextBlock
+                    Grid.Row="1"
+                    Text="lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+                    TextWrapping="Wrap" />
+
+            </Grid>
+
+            <Image Width="100" Height="100" />
+
+
+        </Grid>
+
+
+
+
+
+        <!--<StackPanel Orientation="Horizontal" Height="100">
+
+
+
+
+
+
+        </StackPanel>-->
+
+
 
     </Grid>
 </Page>
