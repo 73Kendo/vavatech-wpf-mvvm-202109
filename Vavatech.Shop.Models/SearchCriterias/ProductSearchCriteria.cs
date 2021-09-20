@@ -13,6 +13,7 @@ namespace Vavatech.Shop.Models.SearchCriterias
 
     public class ProductSearchCriteria : SearchCriteria
     {
+        public string NameFrom { get; set; }
         public string Color { get; set; }
         public decimal? FromUnitPrice { get; set; }
         public decimal? ToUnitPrice { get; set; }
