@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Vavatech.Shop.FakeServices;
 using Vavatech.Shop.IServices;
 using Vavatech.Shop.Models;
 
@@ -20,12 +19,6 @@ namespace Vavatech.Shop.ViewModels
         public IEnumerable<Product> SelectedProducts { get; set; }
 
         private readonly IProductService productService;
-
-        public ProductsViewModel()
-            : this(new FakeProductService())
-        {
-
-        }
 
         public ProductsViewModel(IProductService productService)
         {

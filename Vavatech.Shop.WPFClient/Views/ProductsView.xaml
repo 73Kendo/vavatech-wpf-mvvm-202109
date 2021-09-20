@@ -6,102 +6,23 @@
     xmlns:local="clr-namespace:Vavatech.Shop.WPFClient.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:Vavatech.Shop.ViewModels;assembly=Vavatech.Shop.ViewModels"
+    DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=ProductViewModel}" 
     Title="ProductsView"
     d:Background="White"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
 
-
-    <Page.DataContext>
+    <!--<Page.DataContext>
         <vm:ProductsViewModel />
-    </Page.DataContext>
+    </Page.DataContext>-->
 
     <Grid>
 
-        <ListBox ItemsSource="{Binding Products}" SelectedItem="{Binding SelectedProduct}">
-
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid Height="100">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition Width="100" />
-
-                        </Grid.ColumnDefinitions>
-
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition />
-                                <RowDefinition />
-                            </Grid.RowDefinitions>
-
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock
-                                    Width="200"
-                                    Margin="5"
-                                    VerticalAlignment="Center"
-                                    Text="{Binding Name}" />
-
-                                <TextBlock
-                                    Width="100"
-                                    Margin="5"
-                                    VerticalAlignment="Center"
-                                    Text="{Binding UnitPrice, StringFormat={}{0:N2} PLN}"
-                                    TextAlignment="Right" />
-
-                                <Ellipse
-                                    Width="20"
-                                    Height="20"
-                                    VerticalAlignment="Center"
-                                    Fill="{Binding Color}" />
-
-                                <CheckBox
-                                    Margin="5"
-                                    VerticalAlignment="Center"
-                                    Content="Is Discounted"
-                                    IsChecked="{Binding IsDiscounted}" />
-                            </StackPanel>
-
-                            <TextBlock
-                                Grid.Row="1"
-                                Text="{Binding Description}"
-                                TextWrapping="Wrap" />
-
-                        </Grid>
-
-                        <Image Width="100" Height="100" />
-
-
-                    </Grid>
-
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-
-
-
-        </ListBox>
-
-
-
-        <!--  Product Row View  -->
-
-
-
-
-
-
-
-        <!--<StackPanel Orientation="Horizontal" Height="100">
-
-
-
-
-
-
-        </StackPanel>-->
-
-
+        <ListBox
+            ItemTemplate="{StaticResource ProductTemplate}"
+            ItemsSource="{Binding Products}"
+            SelectedItem="{Binding SelectedProduct}" />
 
     </Grid>
 </Page>

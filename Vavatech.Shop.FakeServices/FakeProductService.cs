@@ -1,7 +1,6 @@
 ﻿using Bogus;
 using System;
 using System.Collections.Generic;
-using Vavatech.Shop.FakeServices.Fakers;
 using Vavatech.Shop.IServices;
 using Vavatech.Shop.Models;
 using Vavatech.Shop.Models.SearchCriterias;
@@ -13,12 +12,6 @@ namespace Vavatech.Shop.FakeServices
     public class FakeProductService : IProductService
     {
         private readonly ICollection<Product> products;
-
-        public FakeProductService()
-            : this(new ProductFaker())
-        {
-
-        }
 
         public FakeProductService(Faker<Product> faker)
         {

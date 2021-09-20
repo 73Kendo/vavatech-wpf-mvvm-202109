@@ -10,4 +10,10 @@
     <ProjectReference Include="..\Vavatech.Shop.ViewModels\Vavatech.Shop.ViewModels.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Page Update="Resources\DataTemplates.xaml">
+      <CopyToOutputDirectory></CopyToOutputDirectory>
+    </Page>
+  </ItemGroup>
+
 </Project>
