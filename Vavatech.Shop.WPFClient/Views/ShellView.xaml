@@ -47,8 +47,6 @@
         </Grid>
 
 
-
-
         <Frame Source="ProductsView.xaml" />
 
 

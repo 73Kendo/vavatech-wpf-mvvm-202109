@@ -11,5 +11,7 @@ namespace Vavatech.Shop.Models
         public bool IsDiscounted { get; set; }
         public string Color { get; set; }
         public byte[] Image { get; set; }
+
+       
     }
 }

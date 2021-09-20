@@ -23,6 +23,8 @@ namespace Vavatech.Shop.WPFClient.Views
         public ProductsView()
         {
             InitializeComponent();
+
+            // this.DataContext = new ViewModels.ProductsViewModel(new FakeServices.FakeProductService());
         }
     }
 }

@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vavatech.Shop.Models", "Vav
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vavatech.Shop.IServices", "Vavatech.Shop.IServices\Vavatech.Shop.IServices.csproj", "{3F3C94FA-F500-4626-980E-0DCE81AEA8C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vavatech.Shop.ViewModels", "Vavatech.Shop.ViewModels\Vavatech.Shop.ViewModels.csproj", "{3852D7F7-4D0F-4F91-9162-3ED6CBA8BC76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vavatech.Shop.FakeServices", "Vavatech.Shop.FakeServices\Vavatech.Shop.FakeServices.csproj", "{706A98B7-2C22-4E40-AB80-8905BB14F904}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{3F3C94FA-F500-4626-980E-0DCE81AEA8C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F3C94FA-F500-4626-980E-0DCE81AEA8C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F3C94FA-F500-4626-980E-0DCE81AEA8C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3852D7F7-4D0F-4F91-9162-3ED6CBA8BC76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3852D7F7-4D0F-4F91-9162-3ED6CBA8BC76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3852D7F7-4D0F-4F91-9162-3ED6CBA8BC76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3852D7F7-4D0F-4F91-9162-3ED6CBA8BC76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{706A98B7-2C22-4E40-AB80-8905BB14F904}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{706A98B7-2C22-4E40-AB80-8905BB14F904}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{706A98B7-2C22-4E40-AB80-8905BB14F904}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{706A98B7-2C22-4E40-AB80-8905BB14F904}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
