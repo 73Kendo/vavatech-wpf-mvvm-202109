@@ -11,11 +11,7 @@
     mc:Ignorable="d">
 
 
-    <!--<StackPanel Orientation="Vertical">
-        <Button Margin="5" Background="DarkBlue" >Products</Button>
-        <Button Margin="5" Background="DarkGreen"  >Services</Button>
-        <Button Margin="5" Background="DarkRed"  >Settings</Button>
-    </StackPanel>-->
+
 
     <!--<DockPanel>
         <Button Height="50" Background="DarkBlue" DockPanel.Dock="Top" >Products</Button>
@@ -37,13 +33,23 @@
             Background="DarkRed"
             DockPanel.Dock="Bottom" />
 
-        <Border
-            Width="200"
-            Background="DarkBlue"
-            DockPanel.Dock="Left" />
+        <Grid Width="200" Background="DarkBlue">
+
+            <StackPanel Orientation="Vertical">
+                <Button Margin="5" Background="DarkGreen">Products</Button>
+                <Button Margin="5" Background="DarkGreen">Services</Button>
+            </StackPanel>
+
+            <StackPanel VerticalAlignment="Bottom" Orientation="Vertical">
+                <Button Margin="5" Background="DarkRed">Settings</Button>
+            </StackPanel>
+
+        </Grid>
 
 
-        <Border Background="DarkGreen" />
+
+
+        <Frame Source="ProductsView.xaml" />
 
 
     </DockPanel>
