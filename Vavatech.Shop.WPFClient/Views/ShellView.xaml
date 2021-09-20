@@ -1,0 +1,84 @@
+﻿<Window
+    x:Class="Vavatech.Shop.WPFClient.Views.ShellView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Vavatech.Shop.WPFClient.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="ShellView"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+
+
+    <!--<StackPanel Orientation="Vertical">
+        <Button Margin="5" Background="DarkBlue" >Products</Button>
+        <Button Margin="5" Background="DarkGreen"  >Services</Button>
+        <Button Margin="5" Background="DarkRed"  >Settings</Button>
+    </StackPanel>-->
+
+    <!--<DockPanel>
+        <Button Height="50" Background="DarkBlue" DockPanel.Dock="Top" >Products</Button>
+        <Button Background="DarkGreen" DockPanel.Dock="Top" >Services</Button>
+        <Button Height="50"
+                VerticalAlignment="Bottom"
+                Background="DarkRed" >Settings</Button>
+    </DockPanel>-->
+
+    <DockPanel>
+
+        <Border
+            Height="70"
+            Background="DarkOrange"
+            DockPanel.Dock="Top" />
+
+        <Border
+            Height="30"
+            Background="DarkRed"
+            DockPanel.Dock="Bottom" />
+
+        <Border
+            Width="200"
+            Background="DarkBlue"
+            DockPanel.Dock="Left" />
+
+
+        <Border Background="DarkGreen" />
+
+
+    </DockPanel>
+
+
+    <!--<Grid>
+
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="25*" />
+
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="73*"/>
+
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70" />
+            <RowDefinition />
+            <RowDefinition Height="30" />
+
+        </Grid.RowDefinitions>
+
+        <Border
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Grid.Column="0"
+            Background="DarkBlue" />
+
+        <Border
+            Grid.Row="1"
+            Grid.Column="1"
+            Background="DarkGreen" Grid.ColumnSpan="2" />
+
+    </Grid>-->
+
+
+</Window>

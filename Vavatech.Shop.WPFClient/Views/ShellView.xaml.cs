@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Vavatech.Shop.WPFClient
+namespace Vavatech.Shop.WPFClient.Views
 {
     /// <summary>
     /// Interaction logic for ShellView.xaml
