@@ -26,5 +26,10 @@ namespace Vavatech.Shop.WPFClient.Views
 
             // this.DataContext = new ViewModels.ProductsViewModel(new FakeServices.FakeProductService());
         }
+
+        private void Button_MouseEnter(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }

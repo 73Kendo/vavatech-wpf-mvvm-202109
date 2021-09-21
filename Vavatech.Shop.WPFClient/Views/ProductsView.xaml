@@ -2,7 +2,9 @@
     x:Class="Vavatech.Shop.WPFClient.Views.ProductsView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:b="clr-namespace:Vavatech.Shop.WPFClient.Behaviors"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:local="clr-namespace:Vavatech.Shop.WPFClient"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:Vavatech.Shop.ViewModels;assembly=Vavatech.Shop.ViewModels"
@@ -31,7 +33,20 @@
             </Menu>
 
             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                <Button Command="{Binding PrintCommand}">Print</Button>
+                <Button Command="{Binding PrintCommand}" Content="Print">
+
+                    <!--<i:Interaction.Behaviors>
+                        <b:MouseEnterButtonBehavior Command="{Binding PrintCommand}" Offset="40" />
+                    </i:Interaction.Behaviors>-->
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseEnter">
+                            <i:InvokeCommandAction Command="{Binding PrintCommand}" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+
+                </Button>
+
             </StackPanel>
 
             <ListBox
