@@ -49,11 +49,13 @@
 
             </Grid>
 
-            <Image
+            <!--<Image
                 Grid.Column="1"
                 Width="100"
                 Height="100"
-                Source="{Binding Image}" />
+                Source="{Binding Image}" />-->
+
+            <Button Grid.Column="1" Style="{StaticResource AlertButtonStyle}">Calculate</Button>
 
 
         </Grid>

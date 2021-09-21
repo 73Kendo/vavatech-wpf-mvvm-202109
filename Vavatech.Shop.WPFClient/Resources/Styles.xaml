@@ -1,0 +1,33 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+
+    <!--  const  -->
+    <SolidColorBrush x:Key="ButtonBackgroundBrush" Color="#3a5341" />
+    <SolidColorBrush x:Key="ButtonForegroundBrush" Color="White" />
+
+    <SolidColorBrush x:Key="AlertButtonBackgroundBrush" Color="DarkRed" />
+
+    <sys:Double x:Key="ButtonHeight">50</sys:Double>
+
+    <Style x:Key="DefaultButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="{StaticResource ButtonBackgroundBrush}" />
+        <Setter Property="Foreground" Value="{StaticResource ButtonForegroundBrush}" />
+        <Setter Property="Height" Value="70" />
+        <Setter Property="Margin" Value="10" />
+    </Style>
+
+    <Style BasedOn="{StaticResource DefaultButtonStyle}" TargetType="Button" />
+
+    <Style
+        x:Key="AlertButtonStyle"
+        BasedOn="{StaticResource DefaultButtonStyle}"
+        TargetType="Button">
+
+        <Setter Property="Background" Value="{StaticResource AlertButtonBackgroundBrush}" />
+
+    </Style>
+
+</ResourceDictionary>
