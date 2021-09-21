@@ -12,6 +12,7 @@ namespace Vavatech.Shop.ViewModels
         public ICommand ShowServicesViewCommand { get; set; }
         public ICommand ShowProductsViewCommand { get; set; }
 
+
         private string selectedView;
         public string SelectedView
         {
