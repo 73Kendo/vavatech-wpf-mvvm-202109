@@ -32,11 +32,12 @@
             Background="DarkRed"
             DockPanel.Dock="Bottom" />
 
-        <Grid Width="200" Background="Gray">
+        <Grid Background="Gray">
 
             <StackPanel Orientation="Vertical">
-                <Button Command="{Binding ShowProductsViewCommand}">Products</Button>
-                <Button Command="{Binding ShowServicesViewCommand}">Services</Button>
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="ProductsView.xaml">Products</Button>
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="ServicesView.xaml">Services</Button>
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="CustomersView.xaml">Customers</Button>
                 <Button>Customers</Button>
             </StackPanel>
 

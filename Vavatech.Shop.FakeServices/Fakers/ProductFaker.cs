@@ -22,6 +22,7 @@ namespace Vavatech.Shop.FakeServices.Fakers
             RuleFor(p => p.Image, f => f.Image.LoremPixelUrl("technics").ToImage());
             //Ignore(p => p.Image);
             RuleFor(p => p.Color, f => f.Commerce.Color());
+            RuleFor(p => p.BarCode, f => f.Commerce.Ean13());
         }
     }
 

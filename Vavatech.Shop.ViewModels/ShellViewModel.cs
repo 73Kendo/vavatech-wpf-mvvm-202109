@@ -9,8 +9,7 @@ namespace Vavatech.Shop.ViewModels
 {
     public class ShellViewModel : BaseViewModel
     {
-        public ICommand ShowServicesViewCommand { get; set; }
-        public ICommand ShowProductsViewCommand { get; set; }
+        public ICommand ShowViewCommand { get; set; }
 
 
         private string selectedView;
@@ -29,9 +28,13 @@ namespace Vavatech.Shop.ViewModels
         {
             ShowProductView();
 
-            ShowServicesViewCommand = new DelegateCommand(ShowServicesView, CanShowServicesView);
-            ShowProductsViewCommand = new DelegateCommand(ShowProductView);
+            ShowViewCommand = new DelegateCommand<string>(ShowView);
 
+        }
+
+        private void ShowView(string viewName)
+        {
+            SelectedView = viewName;
         }
 
         private void ShowProductView()

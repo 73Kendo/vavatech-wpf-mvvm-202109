@@ -6,21 +6,41 @@
     xmlns:local="clr-namespace:Vavatech.Shop.WPFClient"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:Vavatech.Shop.ViewModels;assembly=Vavatech.Shop.ViewModels"
-    DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=ProductsViewModel}"    
     Title="ProductsView"
     d:Background="White"
     d:DesignHeight="450"
     d:DesignWidth="800"
+    DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=ProductsViewModel}"
     mc:Ignorable="d">
 
 
 
     <Grid>
 
-        <ListBox
-            ItemTemplate="{StaticResource ProductTemplate}"
-            ItemsSource="{Binding Products}"
-            SelectedItem="{Binding SelectedProduct}" />
+
+
+        <DockPanel>
+
+            <Menu DockPanel.Dock="Top">
+
+                <MenuItem Header="File">
+                    <MenuItem Command="{Binding PrintCommand}" Header="Print" />
+                </MenuItem>
+
+
+            </Menu>
+
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+                <Button Command="{Binding PrintCommand}">Print</Button>
+            </StackPanel>
+
+            <ListBox
+                ItemTemplate="{StaticResource ProductTemplate}"
+                ItemsSource="{Binding Products}"
+                SelectedItem="{Binding SelectedProduct}" />
+        </DockPanel>
+
+
 
     </Grid>
 </Page>

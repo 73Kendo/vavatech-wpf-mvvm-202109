@@ -18,13 +18,30 @@ namespace Vavatech.Shop.Models
 
     public class Product : BaseEntity
     {
+        private decimal unitPrice;
+
         public string Name { get; set; }
         public string Description { get; set; }
-        public decimal UnitPrice { get; set; }
+        public decimal UnitPrice
+        {
+            get => unitPrice;
+            set
+            {
+                unitPrice = value;
+
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(FullName));
+            }
+        }
         public bool IsDiscounted { get; set; }
         public string Color { get; set; }
-        public byte[] Image { get; set; }
 
-       
+        public string FullName => $"{Name} [{Color}] {UnitPrice}";
+
+        public byte[] Image { get; set; }
+        public string BarCode { get; set; }
+
+
+
     }
 }

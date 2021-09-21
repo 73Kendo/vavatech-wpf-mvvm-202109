@@ -1,7 +1,16 @@
-﻿namespace Vavatech.Shop.Models
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
+namespace Vavatech.Shop.Models
 {
-    public abstract class Base
+    public abstract class Base : INotifyPropertyChanged
     {
-       
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = default)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
     }
 }
