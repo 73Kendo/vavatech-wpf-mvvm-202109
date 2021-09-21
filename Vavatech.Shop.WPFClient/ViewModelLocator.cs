@@ -25,11 +25,14 @@ namespace Vavatech.Shop.WPFClient
             container.RegisterType<ProductsViewModel>();
             container.RegisterType<IProductService, FakeProductService>();
             container.RegisterType<Faker<Product>, ProductFaker>();
+
+            container.RegisterType<ShellViewModel>();
         }
 
         // public ProductsViewModel ProductViewModel => new ProductsViewModel(new FakeProductService(new ProductFaker()));
 
         public ProductsViewModel ProductsViewModel => container.Resolve<ProductsViewModel>();
+        public ShellViewModel ShellViewModel => container.Resolve<ShellViewModel>();
 
 
     }

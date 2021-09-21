@@ -8,6 +8,7 @@
     Title="ShellView"
     Width="800"
     Height="450"
+    DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=ShellViewModel}"
     mc:Ignorable="d">
 
 
@@ -34,8 +35,8 @@
         <Grid Width="200" Background="Gray">
 
             <StackPanel Orientation="Vertical">
-                <Button>Products</Button>
-                <Button>Services</Button>
+                <Button Command="{Binding ShowProductsViewCommand}">Products</Button>
+                <Button Command="{Binding ShowServicesViewCommand}">Services</Button>
                 <Button>Customers</Button>
             </StackPanel>
 
@@ -48,7 +49,7 @@
         </Grid>
 
 
-        <Frame Source="ProductsView.xaml" />
+        <Frame Source="{Binding SelectedView}" />
 
 
     </DockPanel>

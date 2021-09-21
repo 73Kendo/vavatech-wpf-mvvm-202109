@@ -18,6 +18,9 @@
     <Page Update="Resources\DataTemplates.xaml">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Page>
+    <Page Update="Resources\Styles.xaml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Page>
   </ItemGroup>
 
 </Project>
