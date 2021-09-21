@@ -5,10 +5,23 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Vavatech.Shop.WPFClient.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
     Title="ShellView"
     Width="800"
     Height="450"
     mc:Ignorable="d">
+
+    <Window.Resources>
+        <SolidColorBrush x:Key="ButtonBackgroundBrush" Color="#3a5641" />
+        <SolidColorBrush x:Key="ButtonForegroundBrush" Color="White" />
+
+        <SolidColorBrush x:Key="AlertButtonBackgroundBrush" Color="DarkRed" />
+
+        <sys:Double x:Key="ButtonHeight">50</sys:Double>
+
+
+    </Window.Resources>
+
 
 
 
@@ -21,7 +34,7 @@
                 Background="DarkRed" >Settings</Button>
     </DockPanel>-->
 
-    <DockPanel>
+    <DockPanel x:Name="MainPanel">
 
         <Border
             Height="70"
@@ -33,15 +46,33 @@
             Background="DarkRed"
             DockPanel.Dock="Bottom" />
 
-        <Grid Width="200" Background="DarkBlue">
+        <Grid Width="200" Background="Gray">
 
             <StackPanel Orientation="Vertical">
-                <Button Margin="5" Background="DarkGreen">Products</Button>
-                <Button Margin="5" Background="DarkGreen">Services</Button>
+                <Button
+                    Height="{StaticResource ButtonHeight}"
+                    Margin="5"
+                    Background="{StaticResource ButtonBackgroundBrush}"
+                    Foreground="{StaticResource ButtonForegroundBrush}">
+                    Products
+                </Button>
+                <Button
+                    Height="{StaticResource ButtonHeight}"
+                    Margin="5"
+                    Background="{StaticResource ButtonBackgroundBrush}"
+                    Foreground="{StaticResource ButtonForegroundBrush}">
+                    Services
+                </Button>
             </StackPanel>
 
             <StackPanel VerticalAlignment="Bottom" Orientation="Vertical">
-                <Button Margin="5" Background="DarkRed">Settings</Button>
+                <Button
+                    Height="{StaticResource ButtonHeight}"
+                    Margin="5"
+                    Background="{StaticResource AlertButtonBackgroundBrush}"
+                    Foreground="{StaticResource ButtonForegroundBrush}">
+                    Settings
+                </Button>
             </StackPanel>
 
         </Grid>

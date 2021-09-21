@@ -1,7 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Vavatech.Shop.Models
 {
+    public class Order : BaseEntity
+    {
+        public IEnumerable<OrderDetail> Details { get; set; }
+    }
+
+    public class OrderDetail : BaseEntity
+    {
+        public Order Order { get; set; }
+        public Product Product { get; set; }
+    }
+
+
 
     public class Product : BaseEntity
     {

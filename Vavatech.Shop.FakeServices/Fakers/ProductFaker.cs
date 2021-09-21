@@ -19,8 +19,8 @@ namespace Vavatech.Shop.FakeServices.Fakers
             // RuleFor(p => p.UnitPrice, f => decimal.Parse( f.Commerce.Price()));
             RuleFor(p => p.Description, f => f.Lorem.Paragraph(1));
             RuleFor(p => p.IsDiscounted, f => f.Random.Bool(0.3f));
-            //RuleFor(p => p.Image, f => f.Image.LoremPixelUrl("technics").ToImage());
-            Ignore(p => p.Image);
+            RuleFor(p => p.Image, f => f.Image.LoremPixelUrl("technics").ToImage());
+            //Ignore(p => p.Image);
             RuleFor(p => p.Color, f => f.Commerce.Color());
         }
     }
