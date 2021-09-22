@@ -90,23 +90,56 @@
     </DataTemplate>
 
     <DataTemplate x:Key="CustomerTemplate" DataType="{x:Type m:Customer}">
-        <StackPanel Orientation="Horizontal">
 
-            <Image Width="100" Source="{Binding Avatar, IsAsync=True}" />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
 
-            <!--<TextBlock Text="{Binding FirstName}" />
+            <StackPanel Width="300" Orientation="Horizontal">
+
+                <Image Width="100" Source="{Binding Avatar, IsAsync=True}" />
+
+                <!--<TextBlock Text="{Binding FirstName}" />
             <TextBlock Text="{Binding LastName}" />-->
 
-            <TextBlock>
-                <TextBlock.Text>
-                    <MultiBinding StringFormat="{}Pan(i) {0} {1}">
-                        <Binding Path="FirstName" />
-                        <Binding Path="LastName" />
-                    </MultiBinding>
-                </TextBlock.Text>
-            </TextBlock>
+                <TextBlock>
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}Pan(i) {0} {1}">
+                            <Binding Mode="OneTime" Path="FirstName" />
+                            <Binding Path="LastName" />
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
 
-        </StackPanel>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1">
+
+                <TextBlock Text="{Binding ElementName=WpfProgress, Path=Tag}" />
+
+                <ProgressBar
+                    x:Name="WpfProgress"
+                    Width="200"
+                    Height="20"
+                    Margin="10"
+                    Tag="Wpf Progress"
+                    Value="{Binding Progress}" />
+
+
+                <Slider
+                    Maximum="100"
+                    Minimum="0"
+                    Value="{Binding ElementName=WpfProgress, Path=Value}" />
+
+                <CheckBox IsChecked="{Binding IsRemoved}" />
+
+            </StackPanel>
+
+        </Grid>
+
+
     </DataTemplate>
 
 </ResourceDictionary>

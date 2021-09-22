@@ -40,7 +40,7 @@
                 <Button Command="{Binding ShowViewCommand}" CommandParameter="ProductsView.xaml">Products</Button>
                 <Button Command="{Binding ShowViewCommand}" CommandParameter="ServicesView.xaml">Services</Button>
                 <Button Command="{Binding ShowViewCommand}" CommandParameter="CustomersView.xaml">Customers</Button>
-                <Button>Customers</Button>
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="TurbinaView.xaml">Turbina</Button>
             </StackPanel>
 
             <StackPanel VerticalAlignment="Bottom" Orientation="Vertical">

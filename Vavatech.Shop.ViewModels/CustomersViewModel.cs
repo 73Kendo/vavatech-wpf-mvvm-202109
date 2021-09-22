@@ -13,9 +13,19 @@ namespace Vavatech.Shop.ViewModels
     {
         private readonly IEntityService<TEntity> entityService;
 
+        
         public IEnumerable<TEntity> Entities { get; set; }
 
-        public TEntity Selected { get; set; }
+        private TEntity selected;
+        public TEntity Selected
+        {
+            get => selected;
+            set
+            {
+                selected = value;
+                OnPropertyChanged();
+            }
+        }
 
         public EntitiesViewModel(IEntityService<TEntity> entityService)
         {

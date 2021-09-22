@@ -34,6 +34,9 @@ namespace Vavatech.Shop.WPFClient
             container.RegisterType<ICustomerService, FakeCustomerService>();
             container.RegisterType<Faker<Customer>, CustomerFaker>();
 
+
+            container.RegisterType<TurbinaViewModel>();
+
             container.RegisterType<ShellViewModel>();
         }
 
@@ -41,6 +44,7 @@ namespace Vavatech.Shop.WPFClient
 
         public ProductsViewModel ProductsViewModel => container.Resolve<ProductsViewModel>();
         public CustomersViewModel CustomersViewModel => container.Resolve<CustomersViewModel>();
+        public TurbinaViewModel TurbinaViewModel => container.Resolve<TurbinaViewModel>();
         public ShellViewModel ShellViewModel => container.Resolve<ShellViewModel>();
 
 

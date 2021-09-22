@@ -2,7 +2,9 @@
     x:Class="Vavatech.Shop.WPFClient.Views.CustomersView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:c="clr-namespace:Vavatech.Shop.WPFClient.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:local="clr-namespace:Vavatech.Shop.WPFClient.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="CustomersView"
@@ -11,9 +13,89 @@
     DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=CustomersViewModel}"
     mc:Ignorable="d">
 
+    <Page.Resources>
+        <c:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+        <!--<c:FakeConverter x:Key="FakeConverter"/>-->
+    </Page.Resources>
+
     <Grid>
 
-        <ListBox ItemTemplate="{StaticResource CustomerTemplate}" ItemsSource="{Binding Customers}" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <!--<ListBox
+            ItemTemplate="{StaticResource CustomerTemplate}"
+            ItemsSource="{Binding Customers}"
+            SelectedItem="{Binding Selected}" />-->
+
+
+        <!--<Button Content="Lunch Uri">
+
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:LaunchUriOrFileAction Path="{Binding Selected.Avatar}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
+        </Button>-->
+
+        <DataGrid
+            AutoGenerateColumns="False"
+            ItemsSource="{Binding Customers, Converter={c:FakeConverter}}"
+            SelectedItem="{Binding Selected}">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding FirstName}" />
+                <DataGridTextColumn Binding="{Binding LastName}" />
+                <DataGridCheckBoxColumn Binding="{Binding IsRemoved}" />
+
+                <DataGridHyperlinkColumn
+                    Binding="{Binding Avatar}"
+                    ContentBinding="{Binding Avatar}"
+                    Header="Avatar"
+                    IsReadOnly="True">
+
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <i:LaunchUriOrFileAction Path="http://www.google.com" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+
+                    <!--<DataGridHyperlinkColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <EventSetter Event="Hyperlink.Click" Handler="OnHyperlinkClick" />
+                        </Style>
+                    </DataGridHyperlinkColumn.ElementStyle>-->
+
+                </DataGridHyperlinkColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+        <StackPanel Grid.Column="1">
+
+            <Label>First name</Label>
+            <TextBox Text="{Binding Selected.FirstName, UpdateSourceTrigger=PropertyChanged}" />
+
+            <Label>Last name</Label>
+            <TextBox Text="{Binding Selected.LastName}" />
+
+
+            <TextBox Text="{Binding Selected.Progress}" />
+
+            <Slider
+                IsSnapToTickEnabled="True"
+                Maximum="100"
+                Minimum="0"
+                TickFrequency="5"
+                Visibility="{Binding Selected.IsRemoved, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter={x:Static Visibility.Hidden}}"
+                Value="{Binding Selected.Progress, Mode=TwoWay}" />
+
+            <DatePickerTextBox Height="40" Text="{Binding Selected.Birthday}" />
+
+        </StackPanel>
 
 
     </Grid>
