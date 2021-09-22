@@ -1,7 +1,10 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:c="clr-namespace:Vavatech.Shop.WPFClient.Converters"
     xmlns:m="clr-namespace:Vavatech.Shop.Models;assembly=Vavatech.Shop.Models">
+
+    <c:UnitPriceToBrushConverter x:Key="UnitPriceToBrushConverter" />
 
     <DataTemplate x:Key="ProductTemplate">
 
@@ -50,7 +53,9 @@
                             VerticalAlignment="Center"
                             FontSize="18"
                             Text="{Binding UnitPrice, StringFormat={}{0:N2} PLN}"
-                            TextAlignment="Right" />
+                            TextAlignment="Right"
+                            Foreground="{Binding UnitPrice, Converter={StaticResource UnitPriceToBrushConverter}}"
+                            />
 
 
 
