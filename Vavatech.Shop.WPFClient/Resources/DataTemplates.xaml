@@ -53,9 +53,42 @@
                             VerticalAlignment="Center"
                             FontSize="18"
                             Text="{Binding UnitPrice, StringFormat={}{0:N2} PLN}"
-                            TextAlignment="Right"
-                            Foreground="{Binding UnitPrice, Converter={StaticResource UnitPriceToBrushConverter}}"
-                            />
+                            TextAlignment="Right">
+
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+
+                                    <Setter Property="Foreground" Value="Black" />
+
+                                    <Style.Triggers>
+
+                                        <!--<DataTrigger Binding="{Binding IsOverLimit}" Value="True">
+                                            <Setter Property="Foreground" Value="Red" />
+                                            <Setter Property="FontWeight" Value="Bold" />
+                                        </DataTrigger>
+
+                                        <DataTrigger Binding="{Binding IsDiscounted}" Value="True">
+                                            <Setter Property="Foreground" Value="Green" />
+                                            <Setter Property="FontWeight" Value="Bold" />
+                                        </DataTrigger>-->
+
+                                        <MultiDataTrigger>
+                                            <MultiDataTrigger.Conditions>
+                                                <Condition Binding="{Binding IsOverLimit}" Value="True" />
+                                                <Condition Binding="{Binding IsDiscounted}" Value="True" />
+                                            </MultiDataTrigger.Conditions>
+
+                                            <MultiDataTrigger.Setters>
+                                                <Setter Property="Foreground" Value="Blue" />
+                                            </MultiDataTrigger.Setters>
+                                        </MultiDataTrigger>
+
+                                    </Style.Triggers>
+
+                                </Style>
+                            </TextBlock.Style>
+
+                        </TextBlock>
 
 
 
@@ -134,11 +167,12 @@
 
 
                 <Slider
+                    IsHitTestVisible="True"
                     Maximum="100"
                     Minimum="0"
                     Value="{Binding ElementName=WpfProgress, Path=Value}" />
 
-                <CheckBox IsChecked="{Binding IsRemoved}" />
+                <CheckBox IsChecked="{Binding IsRemoved}" IsHitTestVisible="True" />
 
             </StackPanel>
 

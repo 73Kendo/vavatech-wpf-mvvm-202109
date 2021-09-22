@@ -25,13 +25,13 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <!--<ListBox
+        <ListBox
             ItemTemplate="{StaticResource CustomerTemplate}"
             ItemsSource="{Binding Customers}"
-            SelectedItem="{Binding Selected}" />-->
+            SelectedItem="{Binding Selected}" />
 
 
-        <!--<Button Content="Lunch Uri">
+        <Button Content="Lunch Uri">
 
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
@@ -39,9 +39,9 @@
                 </i:EventTrigger>
             </i:Interaction.Triggers>
 
-        </Button>-->
+        </Button>
 
-        <DataGrid
+        <!--<DataGrid
             AutoGenerateColumns="False"
             ItemsSource="{Binding Customers, Converter={c:FakeConverter}}"
             SelectedItem="{Binding Selected}">
@@ -63,16 +63,16 @@
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
 
-                    <!--<DataGridHyperlinkColumn.ElementStyle>
+                    --><!--<DataGridHyperlinkColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <EventSetter Event="Hyperlink.Click" Handler="OnHyperlinkClick" />
                         </Style>
-                    </DataGridHyperlinkColumn.ElementStyle>-->
+                    </DataGridHyperlinkColumn.ElementStyle>--><!--
 
                 </DataGridHyperlinkColumn>
             </DataGrid.Columns>
 
-        </DataGrid>
+        </DataGrid>-->
 
         <StackPanel Grid.Column="1">
 
@@ -93,7 +93,21 @@
                 Visibility="{Binding Selected.IsRemoved, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter={x:Static Visibility.Hidden}}"
                 Value="{Binding Selected.Progress, Mode=TwoWay}" />
 
-            <DatePickerTextBox Height="40" Text="{Binding Selected.Birthday}" />
+            <DatePickerTextBox Height="40" Text="{Binding Selected.Birthday}">
+
+                <DatePickerTextBox.Style>
+                    <Style TargetType="DatePickerTextBox">
+                        <Setter Property="Visibility" Value="Visible" />
+
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Selected.IsRemoved}" Value="True">
+                                <Setter Property="Visibility" Value="Hidden" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </DatePickerTextBox.Style>
+
+            </DatePickerTextBox>
 
         </StackPanel>
 
