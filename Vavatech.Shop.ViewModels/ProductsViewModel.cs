@@ -53,7 +53,7 @@ namespace Vavatech.Shop.ViewModels
 
         public void Calculate()
         {
-            SelectedProduct.UnitPrice += 0.1m;
+            SelectedProduct.UnitPrice -= 100m;
         }
 
         public bool CanCalculate => IsSelectedProduct;

@@ -5,7 +5,24 @@ namespace Vavatech.Shop.Models
 {
     public class Order : BaseEntity
     {
-        public IEnumerable<OrderDetail> Details { get; set; }
+        public IEnumerable<OrderDetail> Details { get; set; } = new List<OrderDetail>();
+
+        public DateTime OrderDate { get; set; }
+
+        public OrderStatus Status { get; set; }
+
+        public Order()
+        {
+            OrderDate = DateTime.Now;
+            Status = OrderStatus.Ordered;
+        }
+    }
+
+    public enum OrderStatus
+    {
+        Ordered,
+        Sent,
+        Shipped
     }
 
     public class OrderDetail : BaseEntity
@@ -30,7 +47,7 @@ namespace Vavatech.Shop.Models
                 unitPrice = value;
 
                 OnPropertyChanged();
-                OnPropertyChanged(nameof(FullName));
+                OnPropertyChanged(nameof(IsOverLimit));
             }
         }
         public bool IsDiscounted { get; set; }
@@ -40,6 +57,10 @@ namespace Vavatech.Shop.Models
 
         public byte[] Image { get; set; }
         public string BarCode { get; set; }
+
+        public static decimal UnitPriceLimit = 500;
+
+        public bool IsOverLimit => UnitPrice > UnitPriceLimit;
 
 
 
