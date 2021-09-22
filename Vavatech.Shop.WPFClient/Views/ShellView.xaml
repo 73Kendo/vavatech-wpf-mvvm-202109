@@ -8,6 +8,8 @@
     Title="ShellView"
     Width="800"
     Height="450"
+    MinHeight="600"
+    MinWidth="500"
     DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=ShellViewModel}"
     mc:Ignorable="d">
 
