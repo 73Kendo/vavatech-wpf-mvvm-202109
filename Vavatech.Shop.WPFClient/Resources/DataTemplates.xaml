@@ -91,10 +91,20 @@
 
     <DataTemplate x:Key="CustomerTemplate" DataType="{x:Type m:Customer}">
         <StackPanel Orientation="Horizontal">
-            <Image Source="{Binding Photo}" />
 
-            <TextBlock Text="{Binding FirstName}" />
-            <TextBlock Text="{Binding LastName}" />
+            <Image Width="100" Source="{Binding Avatar, IsAsync=True}" />
+
+            <!--<TextBlock Text="{Binding FirstName}" />
+            <TextBlock Text="{Binding LastName}" />-->
+
+            <TextBlock>
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{}Pan(i) {0} {1}">
+                        <Binding Path="FirstName" />
+                        <Binding Path="LastName" />
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
 
         </StackPanel>
     </DataTemplate>

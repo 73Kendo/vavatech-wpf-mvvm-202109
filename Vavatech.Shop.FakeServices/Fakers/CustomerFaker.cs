@@ -15,7 +15,8 @@ namespace Vavatech.Shop.FakeServices.Fakers
             RuleFor(p => p.Birthday, f => f.Person.DateOfBirth);
             RuleFor(p => p.Gender, f => (Gender) f.Person.Gender);
             RuleFor(p => p.Pesel, f => f.Person.Pesel());
-            RuleFor(p => p.Photo, f => f.Person.Avatar.ToImage());
+            // RuleFor(p => p.Photo, f => f.Person.Avatar.ToImage());
+            RuleFor(p => p.Avatar, f => f.Person.Avatar);
         }
     }
 }

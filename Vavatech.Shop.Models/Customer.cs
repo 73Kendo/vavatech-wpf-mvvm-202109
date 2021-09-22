@@ -14,6 +14,7 @@ namespace Vavatech.Shop.Models
         public Gender Gender { get; set; }
         public string Pesel { get; set; }
         public byte[] Photo { get; set; }
+        public string Avatar { get; set; }
     }
 
     public enum Gender
