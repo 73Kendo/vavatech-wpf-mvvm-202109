@@ -8,20 +8,13 @@
     Title="CustomersView"
     d:DesignHeight="450"
     d:DesignWidth="800"
+    DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=CustomersViewModel}"
     mc:Ignorable="d">
 
     <Grid>
 
-        <Grid Background="MediumBlue">
+        <ListBox ItemTemplate="{StaticResource CustomerTemplate}" ItemsSource="{Binding Customers}" />
 
-            <TextBlock
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                FontSize="40"
-                Foreground="White"
-                Text="Customers View" />
-
-        </Grid>
 
     </Grid>
 </Page>

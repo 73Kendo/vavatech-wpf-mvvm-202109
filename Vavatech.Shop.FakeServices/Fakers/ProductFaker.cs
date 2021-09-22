@@ -8,15 +8,6 @@ using Vavatech.Shop.Models;
 
 namespace Vavatech.Shop.FakeServices.Fakers
 {
-    //public class CustomerFaker : Faker<Customer>
-    //{
-    //    public CustomerFaker()
-    //    {
-    //        RuleFor(p => p.Id, f => f.IndexFaker);
-    //        RuleFor(p => p.FirstName, f => f.Person.FirstName);
-    //        RuleFor(p => p.LastName, f => f.Person.LastName);
-    //    }
-    //}
 
     public class ProductFaker : Faker<Product>
     {

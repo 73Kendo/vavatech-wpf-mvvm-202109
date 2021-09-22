@@ -1,42 +1,26 @@
 ﻿using Bogus;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Vavatech.Shop.IServices;
 using Vavatech.Shop.Models;
 using Vavatech.Shop.Models.SearchCriterias;
 
 namespace Vavatech.Shop.FakeServices
 {
+
+
     // Install-Package Bogus
 
-    public class FakeProductService : IProductService
+    public class FakeProductService : FakeEntityService<Product>, IProductService
     {
-        private readonly ICollection<Product> products;
-
-        public FakeProductService(Faker<Product> faker)
+        public FakeProductService(Faker<Product> faker) : base(faker)
         {
-            products = faker.Generate(10);
-        }
-
-
-        public void Add(Product product)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Product> Get()
-        {
-            return products;
-        }
-
-        public Product Get(int id)
-        {
-            throw new NotImplementedException();
         }
 
         public IEnumerable<Product> Get(string color)
         {
-            throw new NotImplementedException();
+            return entities.Where(p => p.Color == color);
         }
 
         public IEnumerable<Product> Get(decimal? fromUnitPrice, decimal? toUnitPrice)
@@ -45,16 +29,6 @@ namespace Vavatech.Shop.FakeServices
         }
 
         public IEnumerable<Product> Get(ProductSearchCriteria searchCriteria)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Remove(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(Product product)
         {
             throw new NotImplementedException();
         }
