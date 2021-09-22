@@ -2,65 +2,87 @@
 
     <DataTemplate x:Key="ProductTemplate">
 
-        <Grid Height="100">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="700" />
-                <ColumnDefinition Width="100" />
 
-            </Grid.ColumnDefinitions>
+        <Border
+            Margin="5"
+            Padding="5"
+            Background="White"
+            CornerRadius="5">
 
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
+            <Grid
+                Height="100"
+                Margin="10"
+                Background="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
 
-                <StackPanel Orientation="Horizontal">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal">
+
+                        <Ellipse
+                            Width="20"
+                            Height="20"
+                            Margin="10"
+                            VerticalAlignment="Center"
+                            Fill="{Binding Color}" />
+
+                        <TextBlock
+                            Width="300"
+                            Margin="5"
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            FontWeight="Bold"
+                            Text="{Binding Name}" />
+
+                        <TextBlock
+                            Width="100"
+                            Margin="5"
+                            VerticalAlignment="Center"
+                            FontSize="18"
+                            Text="{Binding UnitPrice, StringFormat={}{0:N2} PLN}"
+                            TextAlignment="Right" />
+
+
+
+                        <!--<CheckBox
+                            Margin="5"
+                            VerticalAlignment="Center"
+                            Content="Is Discounted"
+                            IsChecked="{Binding IsDiscounted}" />-->
+                    </StackPanel>
+
                     <TextBlock
-                        Width="200"
-                        Margin="5"
-                        VerticalAlignment="Center"
-                        Text="{Binding FullName}" />
+                        Grid.Row="1"
+                        FontSize="14"
+                        Text="{Binding Description}"
+                        TextWrapping="Wrap" />
 
-                    <TextBlock
-                        Width="100"
-                        Margin="5"
-                        VerticalAlignment="Center"
-                        Text="{Binding UnitPrice, StringFormat={}{0:N2} PLN}"
-                        TextAlignment="Right" />
+                </Grid>
 
-                    <Ellipse
-                        Width="20"
-                        Height="20"
-                        VerticalAlignment="Center"
-                        Fill="{Binding Color}" />
-
-                    <CheckBox
-                        Margin="5"
-                        VerticalAlignment="Center"
-                        Content="Is Discounted"
-                        IsChecked="{Binding IsDiscounted}" />
-                </StackPanel>
-
-                <TextBlock
-                    Grid.Row="1"
-                    Text="{Binding Description}"
-                    TextWrapping="Wrap" />
-
-            </Grid>
-
-            <!--<Image
+                <!--<Image
                 Grid.Column="1"
                 Width="100"
                 Height="100"
                 Source="{Binding Image}" />-->
 
-            <Button Grid.Column="1" Style="{StaticResource AlertButtonStyle}"
+                <Button
+                    Grid.Column="1"
                     Command="{Binding RelativeSource={RelativeSource AncestorType=Page}, Path=DataContext.CalculateCommand}"
-                    >Calculate</Button>
+                    Style="{StaticResource ListButtonStyle}">
+                    Calculate
+                </Button>
 
 
-        </Grid>
+            </Grid>
+
+        </Border>
 
     </DataTemplate>
 
