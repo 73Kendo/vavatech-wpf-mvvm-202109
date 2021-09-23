@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace Vavatech.Shop.Models
 {
+
+    public class Coordinate : Base
+    {
+        public double X { get; set; }
+        public double Y { get; set; }
+    }
+
     public class Customer : BaseEntity
     {
         private string firstName;
@@ -51,6 +58,8 @@ namespace Vavatech.Shop.Models
                 OnPropertyChanged();
             }
         }
+
+        public Coordinate Location { get; set; }
     }
 
     public enum Gender

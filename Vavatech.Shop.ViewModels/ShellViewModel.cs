@@ -26,7 +26,7 @@ namespace Vavatech.Shop.ViewModels
 
         public ShellViewModel()
         {
-            ShowView("WelcomeView.xaml");
+            ShowView("CustomersCanvasView.xaml");
 
             ShowViewCommand = new DelegateCommand<string>(ShowView);
 

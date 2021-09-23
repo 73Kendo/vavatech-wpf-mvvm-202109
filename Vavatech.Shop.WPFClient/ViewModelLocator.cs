@@ -33,6 +33,7 @@ namespace Vavatech.Shop.WPFClient
 
             container.RegisterType<ICustomerService, FakeCustomerService>();
             container.RegisterType<Faker<Customer>, CustomerFaker>();
+            container.RegisterType<Faker<Coordinate>, CoordinateFaker>();
 
 
             container.RegisterType<TurbinaViewModel>();
