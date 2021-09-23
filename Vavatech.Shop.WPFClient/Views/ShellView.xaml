@@ -39,11 +39,16 @@
             <StackPanel Orientation="Vertical">
                 <Button Command="{Binding ShowViewCommand}" CommandParameter="WelcomeView.xaml">Welcome</Button>
 
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="DashboardView.xaml">Dashboard</Button>
+
                 <Button Command="{Binding ShowViewCommand}" CommandParameter="ProductsView.xaml">Products</Button>
                 <Button Command="{Binding ShowViewCommand}" CommandParameter="ServicesView.xaml">Services</Button>
                 <Button Command="{Binding ShowViewCommand}" CommandParameter="CustomersView.xaml">Customers</Button>
                 <Button Command="{Binding ShowViewCommand}" CommandParameter="CustomersCanvasView.xaml">Canvas</Button>
                 <Button Command="{Binding ShowViewCommand}" CommandParameter="TurbinaView.xaml">Turbina</Button>
+
+
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="CountryView.xaml">Country</Button>
             </StackPanel>
 
             <StackPanel VerticalAlignment="Bottom" Orientation="Vertical">

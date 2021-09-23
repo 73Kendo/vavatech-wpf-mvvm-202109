@@ -60,6 +60,8 @@ namespace Vavatech.Shop.Models
         }
 
         public Coordinate Location { get; set; }
+
+        public IEnumerable<Product> LikedProducts { get; set; }
     }
 
     public enum Gender

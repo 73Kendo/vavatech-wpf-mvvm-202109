@@ -13,7 +13,6 @@ namespace Vavatech.Shop.ViewModels
     {
         private readonly IEntityService<TEntity> entityService;
 
-        
         public IEnumerable<TEntity> Entities { get; set; }
 
         private TEntity selected;
@@ -24,13 +23,16 @@ namespace Vavatech.Shop.ViewModels
             {
                 selected = value;
                 OnPropertyChanged();
+
+                // messageAggregator.Publish<CustomerSelectedMessage>(new CustomerSelectedMessage((Selected));
+
+
             }
         }
 
         public EntitiesViewModel(IEntityService<TEntity> entityService)
         {
             this.entityService = entityService;
-
             Load();
         }
 
