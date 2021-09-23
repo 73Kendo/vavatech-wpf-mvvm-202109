@@ -26,7 +26,7 @@ namespace Vavatech.Shop.ViewModels
 
         public ShellViewModel()
         {
-            ShowProductView();
+            ShowView("WelcomeView.xaml");
 
             ShowViewCommand = new DelegateCommand<string>(ShowView);
 
@@ -37,15 +37,7 @@ namespace Vavatech.Shop.ViewModels
             SelectedView = viewName;
         }
 
-        private void ShowProductView()
-        {
-            SelectedView = "ProductsView.xaml";
-        }
-
-        private void ShowServicesView()
-        {
-            SelectedView = "ServicesView.xaml";
-        }
+        
 
         private bool CanShowServicesView()
         {

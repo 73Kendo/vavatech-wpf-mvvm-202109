@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\Car-WF.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Car-WF.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.31" />
     <PackageReference Include="Unity" Version="5.11.10" />
   </ItemGroup>
