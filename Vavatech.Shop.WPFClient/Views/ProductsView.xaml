@@ -78,7 +78,10 @@
                 Background="Transparent"
                 ItemTemplate="{StaticResource ProductTemplate}"
                 ItemsSource="{Binding Products}"
-                SelectedItem="{Binding SelectedProduct}" />
+                SelectedItem="{Binding SelectedProduct}"
+                ButtonBase.Click="ListBox_Click"
+                
+                />
         </DockPanel>
 
 

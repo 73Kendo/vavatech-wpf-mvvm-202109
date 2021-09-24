@@ -55,6 +55,10 @@
 
 
                 <Button Command="{Binding ShowViewCommand}" CommandParameter="CountryView.xaml">Country</Button>
+
+
+                <Button Command="{Binding ShowViewCommand}" CommandParameter="RoutedEventView.xaml">Routed Events</Button>
+
             </StackPanel>
 
             <StackPanel VerticalAlignment="Bottom" Orientation="Vertical">
