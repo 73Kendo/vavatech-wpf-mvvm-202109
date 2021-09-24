@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Vavatech.Shop.IServices;
 using Vavatech.Shop.Models;
@@ -11,9 +13,20 @@ namespace Vavatech.Shop.ViewModels
 
     public class ProductsViewModel : BaseViewModel
     {
-        public IEnumerable<Product> Products { get; set; }
+        private ObservableCollection<Product> products;
+        public ObservableCollection<Product> Products
+        {
+            get => products; set
+            {
+                products = value;
+                OnPropertyChanged();
+            }
+        }
 
         private Product selectedProduct;
+        private bool isLoading;
+        
+
         public Product SelectedProduct
         {
             get => selectedProduct;
@@ -32,6 +45,16 @@ namespace Vavatech.Shop.ViewModels
         public DelegateCommand PrintCommand { get; }
         public ICommand CalculateCommand { get; }
         public ICommand RemoveCommand { get; set; }
+        public ICommand LoadCommand { get; set; }
+
+        public bool IsLoading
+        {
+            get => isLoading; set
+            {
+                isLoading = value;
+                OnPropertyChanged();
+            }
+        }
 
         public ProductsViewModel(IProductService productService, IMessageBoxService messageBoxService)
         {
@@ -40,9 +63,35 @@ namespace Vavatech.Shop.ViewModels
             PrintCommand = new DelegateCommand(Print, () => CanPrint);
             CalculateCommand = new DelegateCommand(Calculate);
             RemoveCommand = new DelegateCommand(Remove);
+            LoadCommand = new DelegateCommand(async () => await LoadAsync());
 
-            Products = productService.Get();
+            Products = new ObservableCollection<Product>();
         }
+
+        private async Task LoadAsync()
+        {
+            IsLoading = true;
+
+            var products = productService.GetAsync2();
+
+            await foreach (var product in products)
+            {
+                Products.Add(product);
+            }
+
+            IsLoading = false;
+        }
+
+
+
+        //private async Task LoadAsync()
+        //{
+        //    IsLoading = true;
+
+        //    Products = await productService.GetAsync();
+
+        //    IsLoading = false;
+        //}
 
         private void Remove()
         {

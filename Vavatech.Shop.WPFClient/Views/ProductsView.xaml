@@ -16,11 +16,17 @@
     DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=ProductsViewModel}"
     mc:Ignorable="d">
 
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
 
 
     <Grid>
 
-        
+
 
 
         <DockPanel>
