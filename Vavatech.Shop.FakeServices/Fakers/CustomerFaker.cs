@@ -9,7 +9,7 @@ namespace Vavatech.Shop.FakeServices.Fakers
     // Install-Package Sulmar.Bogus.Extensions.Poland
     public class CustomerFaker : Faker<Customer>
     {
-        public CustomerFaker(Faker<Coordinate> coordinateFaker, IProductService productService)
+        public CustomerFaker(Faker<Coordinate> coordinateFaker, Faker<Address> addressFaker, IProductService productService)
         {
             var products = productService.Get();
 
@@ -26,6 +26,9 @@ namespace Vavatech.Shop.FakeServices.Fakers
 
             RuleFor(p => p.Location, f => coordinateFaker.Generate());
             RuleFor(p => p.LikedProducts, f => f.PickRandom(products, 3));
+
+            RuleFor(p => p.WorkAddress, f => addressFaker.Generate());
+            RuleFor(p => p.HomeAddress, f => addressFaker.Generate());
         }
     }
 

@@ -113,12 +113,19 @@
                 Height="100"
                 Source="{Binding Image}" />-->
 
-                <Button
-                    Grid.Column="1"
-                    Command="{Binding RelativeSource={RelativeSource AncestorType=Page}, Path=DataContext.CalculateCommand}"
-                    Style="{StaticResource ListButtonStyle}">
-                    Calculate
-                </Button>
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+
+
+                    <Button Command="{Binding RelativeSource={RelativeSource AncestorType=Page}, Path=DataContext.CalculateCommand}" Style="{StaticResource ListButtonStyle}">
+                        Calculate
+                    </Button>
+
+                    <Button Command="{Binding RelativeSource={RelativeSource AncestorType=Page}, Path=DataContext.RemoveCommand}" Style="{StaticResource ListButtonStyle}">
+                        Remove
+                    </Button>
+
+
+                </StackPanel>
 
 
             </Grid>

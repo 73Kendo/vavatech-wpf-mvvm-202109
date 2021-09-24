@@ -10,6 +10,7 @@ using Vavatech.Shop.FakeServices.Fakers;
 using Vavatech.Shop.IServices;
 using Vavatech.Shop.Models;
 using Vavatech.Shop.ViewModels;
+using Vavatech.Shop.WPFClient.WpfServices;
 
 namespace Vavatech.Shop.WPFClient
 {
@@ -41,12 +42,15 @@ namespace Vavatech.Shop.WPFClient
             container.RegisterSingleton<ICityService, FakeCityService>();
             container.RegisterSingleton<Faker<City>, CityFaker>();
 
+            container.RegisterType<Faker<Address>, AddressFaker>();
 
             container.RegisterType<TurbinaViewModel>();
 
             container.RegisterType<DashboardViewModel>();
 
             container.RegisterType<ShellViewModel>();
+
+            container.RegisterType<IMessageBoxService, WpfMessageBoxService>();
         }
 
         // public ProductsViewModel ProductViewModel => new ProductsViewModel(new FakeProductService(new ProductFaker()));

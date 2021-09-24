@@ -27,19 +27,31 @@ namespace Vavatech.Shop.ViewModels
         public IEnumerable<Product> SelectedProducts { get; set; }
 
         private readonly IProductService productService;
-        
+        private readonly IMessageBoxService messageBoxService;
 
         public DelegateCommand PrintCommand { get; }
         public ICommand CalculateCommand { get; }
+        public ICommand RemoveCommand { get; set; }
 
-        public ProductsViewModel(IProductService productService)
+        public ProductsViewModel(IProductService productService, IMessageBoxService messageBoxService)
         {
             this.productService = productService;
-
-            PrintCommand = new DelegateCommand(Print, ()=>CanPrint);
+            this.messageBoxService = messageBoxService;
+            PrintCommand = new DelegateCommand(Print, () => CanPrint);
             CalculateCommand = new DelegateCommand(Calculate);
+            RemoveCommand = new DelegateCommand(Remove);
 
             Products = productService.Get();
+        }
+
+        private void Remove()
+        {
+            var result = messageBoxService.ShowQuestion($"Czy jesteś pewień, że chcesz usunąć product {SelectedProduct.Name}?");
+
+            if (result == DialogResult.Yes)
+            {
+                productService.Remove(SelectedProduct.Id);
+            }
         }
 
         private void Print()
@@ -58,12 +70,8 @@ namespace Vavatech.Shop.ViewModels
 
         public bool CanCalculate => IsSelectedProduct;
 
-        public void Remove()
-        {
-            throw new NotImplementedException();
-        }
 
 
-        
+
     }
 }

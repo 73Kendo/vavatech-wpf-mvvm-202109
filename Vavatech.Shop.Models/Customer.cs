@@ -62,11 +62,23 @@ namespace Vavatech.Shop.Models
         public Coordinate Location { get; set; }
 
         public IEnumerable<Product> LikedProducts { get; set; }
+
+        public Address WorkAddress { get; set; }
+        public Address HomeAddress  { get; set; }
     }
 
     public enum Gender
     {
         Male,
         Female
+    }
+
+
+    public class Address : Base
+    {
+        public string City { get; set; }
+        public string Country { get; set; }
+        public string PostCode { get; set; }
+        public string Street { get; set; }
     }
 }
