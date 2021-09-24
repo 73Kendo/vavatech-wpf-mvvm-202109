@@ -12,14 +12,15 @@
     Height="450"
     MinWidth="500"
     MinHeight="600"
-    DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=ShellViewModel}"
+    
+    DataContext="{Binding Source=x:Static Application.Current.ViewModelLocator.ShellViewModel}"
     mc:Ignorable="d">
-
+    
     <i:Interaction.Behaviors>
         <b:CloseWindowBehavior />
     </i:Interaction.Behaviors>
 
-
+<!--DataContext="{Binding RelativeSource=x:Static Application.Current, Path=ViewModelLocator.ShellViewModel}"-->
     <!--<DockPanel>
         <Button Height="50" Background="DarkBlue" DockPanel.Dock="Top" >Products</Button>
         <Button Background="DarkGreen" DockPanel.Dock="Top" >Services</Button>

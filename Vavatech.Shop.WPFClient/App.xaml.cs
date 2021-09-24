@@ -19,13 +19,12 @@ namespace Vavatech.Shop.WPFClient
     public partial class App : Application
     {
         //public ViewModelLocator ViewModelLocator { get; set; }
-
+        //public new static App Current => (App)Application.Current;
         //// zamiast  StartupUri="Views\ShellView.xaml" w App.xaml
         //protected override void OnStartup(StartupEventArgs e)
         //{
         //    IUnityContainer container = new UnityContainer();
-
-
+        //    container.RegisterType<ShellView>();
         //    container.RegisterType<ShellViewModel>();
 
         //    container.RegisterType<IMessageBoxService, WpfMessageBoxService>();
@@ -33,9 +32,10 @@ namespace Vavatech.Shop.WPFClient
         //    ViewModelLocator = new ViewModelLocator(container);
 
         //    var view = container.Resolve<ShellView>();
-            
+
         //    view.Show();
 
-        //}
+        }
     }
 }
+

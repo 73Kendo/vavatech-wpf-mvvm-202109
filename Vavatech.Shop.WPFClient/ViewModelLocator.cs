@@ -19,9 +19,11 @@ namespace Vavatech.Shop.WPFClient
     {
         private readonly IUnityContainer container;
 
-        public ViewModelLocator()
+        public ViewModelLocator(IUnityContainer container)
         {
-            container = new UnityContainer();
+
+            this.container = container;
+           // container = new UnityContainer();
 
             container.RegisterSingleton<ProductsViewModel>();
 

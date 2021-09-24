@@ -11,7 +11,7 @@
     d:Background="White"
     d:DesignHeight="550"
     d:DesignWidth="800"
-    DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=ProductsViewModel}"
+    DataContext="{Binding Source=x:Static Application.Current, Path=ViewModelLocator.ProductsViewModel}"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -162,10 +162,10 @@
 
             <!--  Content  -->
 
-            <ListBox ItemsSource="{Binding Source={StaticResource PromotionProducts}}"
-                     SelectedItem="{Binding SelectedProduct}"
-                     ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-                     >
+            <ListBox
+                ItemsSource="{Binding Source={StaticResource PromotionProducts}}"
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                SelectedItem="{Binding SelectedProduct}">
 
 
                 <ItemsControl.ItemTemplate>
