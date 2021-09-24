@@ -23,8 +23,6 @@ namespace Vavatech.Shop.WPFClient
         {
             container = new UnityContainer();
 
-            // container.RegisterType<ProductsViewModel>();
-
             container.RegisterSingleton<ProductsViewModel>();
 
             container.RegisterSingleton<IProductService, FakeProductService>();

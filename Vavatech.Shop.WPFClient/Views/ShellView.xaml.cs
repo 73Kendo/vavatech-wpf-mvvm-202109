@@ -24,6 +24,6 @@ namespace Vavatech.Shop.WPFClient.Views
             InitializeComponent();
         }
 
-       
+        
     }
 }
