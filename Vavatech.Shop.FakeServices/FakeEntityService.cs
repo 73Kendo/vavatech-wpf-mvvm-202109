@@ -17,7 +17,7 @@ namespace Vavatech.Shop.FakeServices
         {
             // entities = faker.Generate(20);
 
-            entities = faker.GenerateLazy(100);
+            entities = faker.GenerateLazy(20);
 
             foreach (var entity in entities)
             {

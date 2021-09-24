@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Vavatech.Shop.IServices;
@@ -10,6 +11,10 @@ using Vavatech.Shop.Models;
 namespace Vavatech.Shop.ViewModels
 {
 
+    // #nullable
+    // string text;
+
+    // Customer customer;
 
     public class ProductsViewModel : BaseViewModel
     {
@@ -25,7 +30,7 @@ namespace Vavatech.Shop.ViewModels
 
         private Product selectedProduct;
         private bool isLoading;
-        
+        private int loadCounter;
 
         public Product SelectedProduct
         {
@@ -47,6 +52,8 @@ namespace Vavatech.Shop.ViewModels
         public ICommand RemoveCommand { get; set; }
         public ICommand LoadCommand { get; set; }
 
+        public ICommand LoadCancelCommand { get; set; }
+
         public bool IsLoading
         {
             get => isLoading; set
@@ -64,22 +71,58 @@ namespace Vavatech.Shop.ViewModels
             CalculateCommand = new DelegateCommand(Calculate);
             RemoveCommand = new DelegateCommand(Remove);
             LoadCommand = new DelegateCommand(async () => await LoadAsync());
+            LoadCancelCommand = new DelegateCommand(LoadCancel);
 
             Products = new ObservableCollection<Product>();
+        }
+
+       
+
+        public int LoadCounter
+        {
+            get => loadCounter; set
+            {
+                loadCounter = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private CancellationTokenSource cts = new CancellationTokenSource(TimeSpan.FromSeconds(3));
+
+        private void LoadCancel()
+        {
+            // Anulujemy wszystkie tokeny
+            cts.Cancel();
+
         }
 
         private async Task LoadAsync()
         {
             IsLoading = true;
 
-            var products = productService.GetAsync2();
+            IProgress<int> progress = new Progress<int>(step => LoadCounter = step);
+            
+            CancellationToken cancellationToken = cts.Token;
 
-            await foreach (var product in products)
+            try
             {
-                Products.Add(product);
+                var products = productService.GetAsync2(cancellationToken, progress);
+
+                await foreach (var product in products)
+                {
+                    Products.Add(product);
+                }
+            }
+            catch(OperationCanceledException e)
+            {
+                messageBoxService.ShowInformation("Anulowano pobieranie.");
+            }
+            finally
+            {
+                IsLoading = false;
             }
 
-            IsLoading = false;
+            
         }
 
 

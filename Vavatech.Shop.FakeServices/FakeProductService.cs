@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Vavatech.Shop.IServices;
 using Vavatech.Shop.Models;
@@ -42,11 +43,22 @@ namespace Vavatech.Shop.FakeServices
             // return Task.FromResult(100);
         }
 
-        public async IAsyncEnumerable<Product> GetAsync2()
+        public async IAsyncEnumerable<Product> GetAsync2(CancellationToken cancellationToken = default, IProgress<int> progress = default)
         {
+            int counter = 0;
+
             foreach (var item in entities)
             {
-                await Task.Delay(TimeSpan.FromSeconds(1));
+                //if (cancellationToken.IsCancellationRequested)
+                //{
+                //    break;
+                //}
+
+                cancellationToken.ThrowIfCancellationRequested();
+
+                await Task.Delay(TimeSpan.FromSeconds(1), cancellationToken);
+
+                progress?.Report(counter++);
 
                 yield return item;
             }

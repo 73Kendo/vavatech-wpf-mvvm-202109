@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using Vavatech.Shop.Models;
 
@@ -22,7 +24,7 @@ namespace Vavatech.Shop.IServices
     {
         Task<IEnumerable<TEntity>> GetAsync();
 
-        IAsyncEnumerable<TEntity> GetAsync2();
+        IAsyncEnumerable<TEntity> GetAsync2(CancellationToken cancellationToken = default, IProgress<int> progress = default);
 
     }
 
