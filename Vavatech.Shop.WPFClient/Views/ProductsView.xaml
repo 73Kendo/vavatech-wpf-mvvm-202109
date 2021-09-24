@@ -37,15 +37,27 @@
                     <MenuItem Command="{Binding PrintCommand}" Header="Print" />
                 </MenuItem>
 
-
             </Menu>
 
             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
 
-                <Button Command="{Binding LoadCancelCommand}" Content="Cancel" />
+                <Button
+                    Width="70"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Background="Red"
+                    Command="{Binding LoadCancelCommand}"
+                    Content="Cancel"
+                    Template="{DynamicResource RounderButtonTemplate}" />
 
 
-                <Button Command="{Binding PrintCommand}" Content="Print">
+                <Button
+                    Width="70"
+                    Command="{Binding PrintCommand}"
+                    Template="{StaticResource RounderButtonTemplate}">
+
+                    <Image Width="50" Source="{StaticResource CarImage}" />
+
 
                     <!--<i:Interaction.Behaviors>
                         <b:MouseEnterButtonBehavior Command="{Binding PrintCommand}" Offset="40" />

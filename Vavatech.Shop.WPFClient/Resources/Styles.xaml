@@ -18,6 +18,8 @@
         <Setter Property="Width" Value="200" />
         <Setter Property="Height" Value="70" />
         <Setter Property="Margin" Value="10" />
+
+        <Setter Property="Template" Value="{StaticResource RounderButtonTemplate}" />
     </Style>
 
     <Style BasedOn="{StaticResource DefaultButtonStyle}" TargetType="Button" />

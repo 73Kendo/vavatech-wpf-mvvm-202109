@@ -11,6 +11,11 @@
     mc:Ignorable="d">
     <Grid>
 
-        <ListBox DisplayMemberPath="FirstName" ItemsSource="{Binding Customers}" />
+        <ListBox
+            BorderBrush="Black"
+            BorderThickness="4"
+            DisplayMemberPath="FirstName"
+            ItemsSource="{Binding Customers}"
+            Template="{StaticResource RounderListBoxTemplate}" />
     </Grid>
 </UserControl>

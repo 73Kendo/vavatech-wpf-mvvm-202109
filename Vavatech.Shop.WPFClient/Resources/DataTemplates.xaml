@@ -6,8 +6,7 @@
 
     <c:UnitPriceToBrushConverter x:Key="UnitPriceToBrushConverter" />
 
-    <DataTemplate x:Key="ProductTemplate">
-
+    <DataTemplate x:Key="ProductTemplate" DataType="{x:Type m:Product}">
 
         <Border
             Margin="5"
