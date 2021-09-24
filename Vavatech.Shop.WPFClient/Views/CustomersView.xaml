@@ -8,6 +8,7 @@
     xmlns:local="clr-namespace:Vavatech.Shop.WPFClient.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:uc="clr-namespace:Vavatech.Shop.WPFClient.UserControls"
+    xmlns:vr="clr-namespace:Vavatech.Shop.WPFClient.ValidationRules"
     Title="CustomersView"
     d:DesignHeight="450"
     d:DesignWidth="800"
@@ -80,7 +81,35 @@
         <StackPanel Grid.Column="1" DataContext="{Binding Selected}">
 
             <Label>First name</Label>
-            <TextBox Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}" />
+
+            <TextBox Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Validation.ErrorTemplate="{StaticResource validationErrorTemplate}" />
+
+            <TextBox Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged, ValidatesOnNotifyDataErrors=True}" />
+
+            <TextBox>
+                <TextBox.Text>
+                    <Binding Path="FirstName" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <vr:NotEmptyValidationRule />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+
+            </TextBox>
+
+            <TextBox>
+                <TextBox.Text>
+                    <Binding Path="FirstName" UpdateSourceTrigger="PropertyChanged">
+                        <Binding.ValidationRules>
+                            <DataErrorValidationRule />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
+
+
+
 
             <Label>Last name</Label>
             <TextBox Text="{Binding LastName}" />

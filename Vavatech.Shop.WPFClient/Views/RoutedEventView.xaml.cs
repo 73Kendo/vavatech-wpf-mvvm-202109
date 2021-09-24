@@ -16,26 +16,30 @@ using System.Windows.Shapes;
 namespace Vavatech.Shop.WPFClient.Views
 {
     /// <summary>
-    /// Interaction logic for ProductsView.xaml
+    /// Interaction logic for RoutedEventView.xaml
     /// </summary>
-    public partial class ProductsView : Page
+    public partial class RoutedEventView : Page
     {
-        public ProductsView()
+        public RoutedEventView()
         {
             InitializeComponent();
-
-            // this.DataContext = new ViewModels.ProductsViewModel(new FakeServices.FakeProductService());
         }
 
-        private void Button_MouseEnter(object sender, MouseEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
+            MessageBox.Show("Button 1 was Clicked");
 
+            e.Handled = true;
         }
 
-        private void ListBox_Click(object sender, RoutedEventArgs e)
+        private void UniformGrid_Click(object sender, RoutedEventArgs e)
         {
-            ListBox listBox = sender as ListBox;
-            listBox.SelectedItem = ((Button)e.OriginalSource).DataContext;
+            MessageBox.Show("UniformGrid Clicked");
+        }
+
+        private void Page_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Page Clicked");
         }
     }
 }

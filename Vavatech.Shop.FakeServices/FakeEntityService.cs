@@ -1,6 +1,8 @@
 ﻿using Bogus;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 using Vavatech.Shop.IServices;
 using Vavatech.Shop.Models;
 
@@ -9,11 +11,18 @@ namespace Vavatech.Shop.FakeServices
     public class FakeEntityService<TEntity> : IEntityService<TEntity>
         where TEntity : BaseEntity
     {
-        protected readonly ICollection<TEntity> entities;
+        protected readonly IEnumerable<TEntity> entities;
 
         public FakeEntityService(Faker<TEntity> faker)
         {
-            entities = faker.Generate(20);
+            // entities = faker.Generate(20);
+
+            entities = faker.GenerateLazy(20);
+
+            foreach (var entity in entities)
+            {
+
+            }
         }
 
         public void Add(TEntity entity)
@@ -23,8 +32,11 @@ namespace Vavatech.Shop.FakeServices
 
         public IEnumerable<TEntity> Get()
         {
+            Thread.Sleep(TimeSpan.FromSeconds(5));
+
             return entities;
         }
+
 
         public TEntity Get(int id)
         {

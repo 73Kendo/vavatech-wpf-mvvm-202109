@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
+using System.Threading;
+using System.Threading.Tasks;
 using Vavatech.Shop.IServices;
 using Vavatech.Shop.Models;
 using Vavatech.Shop.Models.SearchCriterias;
@@ -68,6 +70,16 @@ namespace Vavatech.Shop.DbServices
             }
 
             return products;
+        }
+
+        public Task<IEnumerable<Product>> GetAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IAsyncEnumerable<Product> GetAsync2(CancellationToken cancellationToken = default, IProgress<int> progress = null)
+        {
+            throw new NotImplementedException();
         }
 
         public void Remove(int id)

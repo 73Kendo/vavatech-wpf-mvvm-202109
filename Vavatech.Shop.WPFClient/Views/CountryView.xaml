@@ -10,6 +10,25 @@
     d:DesignWidth="800"
     DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=CountryViewModel}"
     mc:Ignorable="d">
+    <Page.Resources>
+        <Storyboard x:Key="MyStoryboard">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="comboBox" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="-60" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="comboBox" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="-33.75" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="comboBox" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(SkewTransform.AngleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="0.879" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="comboBox" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="0.846" />
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="comboBox" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="2.35" />
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Page.Resources>
 
 
 
@@ -42,9 +61,20 @@
 
 
             <ComboBox
+                x:Name="comboBox"
                 DisplayMemberPath="Name"
                 ItemsSource="{Binding Cities}"
-                SelectedItem="{Binding SelectedCity}" />
+                RenderTransformOrigin="0.5,0.5"
+                SelectedItem="{Binding SelectedCity}">
+                <ComboBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform />
+                        <SkewTransform />
+                        <RotateTransform />
+                        <TranslateTransform />
+                    </TransformGroup>
+                </ComboBox.RenderTransform>
+            </ComboBox>
 
 
             <TextBlock Text="{Binding SelectedCity.Name}" />
@@ -52,6 +82,12 @@
 
 
         </StackPanel>
+
+
+        <Button
+            Width="200"
+            Height="100"
+            Content="Help" />
 
     </Grid>
 </Page>

@@ -30,7 +30,7 @@ namespace Vavatech.Shop.WPFClient.Behaviors
         protected override void OnAttached()
         {
             Window window = this.AssociatedObject;
-                
+
             window.Closing += AssociatedObject_Closing;
         }
 

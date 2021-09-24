@@ -16,11 +16,17 @@
     DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=ProductsViewModel}"
     mc:Ignorable="d">
 
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadCommand}" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+
 
 
     <Grid>
 
-        
+
 
 
         <DockPanel>
@@ -31,11 +37,27 @@
                     <MenuItem Command="{Binding PrintCommand}" Header="Print" />
                 </MenuItem>
 
-
             </Menu>
 
             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-                <Button Command="{Binding PrintCommand}" Content="Print">
+
+                <Button
+                    Width="70"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Background="Red"
+                    Command="{Binding LoadCancelCommand}"
+                    Content="Cancel"
+                    Template="{DynamicResource RounderButtonTemplate}" />
+
+
+                <Button
+                    Width="70"
+                    Command="{Binding PrintCommand}"
+                    Template="{StaticResource RounderButtonTemplate}">
+
+                    <Image Width="50" Source="{StaticResource CarImage}" />
+
 
                     <!--<i:Interaction.Behaviors>
                         <b:MouseEnterButtonBehavior Command="{Binding PrintCommand}" Offset="40" />
@@ -56,9 +78,37 @@
                 Background="Transparent"
                 ItemTemplate="{StaticResource ProductTemplate}"
                 ItemsSource="{Binding Products}"
-                SelectedItem="{Binding SelectedProduct}" />
+                SelectedItem="{Binding SelectedProduct}"
+                ButtonBase.Click="ListBox_Click"
+                
+                />
         </DockPanel>
 
+
+        <ProgressBar
+            Height="20"
+            Margin="50"
+            Maximum="100"
+            Minimum="0"
+            Value="{Binding LoadCounter}">
+            <ProgressBar.Style>
+                <Style TargetType="ProgressBar">
+                    <Setter Property="Visibility" Value="Collapsed" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsLoading}" Value="True">
+                            <Setter Property="Visibility" Value="Visible" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ProgressBar.Style>
+
+
+        </ProgressBar>
+
+        <TextBlock
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Text="{Binding LoadCounter}" />
 
 
     </Grid>
