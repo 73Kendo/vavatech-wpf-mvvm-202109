@@ -143,4 +143,22 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
+    <ControlTemplate x:Key="validationErrorTemplate">
+        <StackPanel>
+            <AdornedElementPlaceholder x:Name="textBox" />
+            <ItemsControl ItemsSource="{Binding}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Foreground="Red" Text="{Binding ErrorContent}" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+    </ControlTemplate>
+
+    <!--  Zmieniamy tylko fragment stylu  -->
+    <!--<Style TargetType="TextBox">
+        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource validationErrorTemplate}" />
+    </Style>-->
+
 </ResourceDictionary>
