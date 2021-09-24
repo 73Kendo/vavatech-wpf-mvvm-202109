@@ -15,4 +15,9 @@ namespace Vavatech.Shop.Models.Validators
             RuleFor(p => p.FirstName).NotEmpty();
         }
     }
+
+
+    // Integracja FluentValidation z WPF 
+    // https://github.com/sulmar/sulmar-inelo-wpf-mvvm
+
 }
